@@ -6,14 +6,13 @@
 /*   By: myeow <myeow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:02:22 by myeow             #+#    #+#             */
-/*   Updated: 2024/03/14 12:07:38 by myeow            ###   ########.fr       */
+/*   Updated: 2024/03/14 17:37:40 by myeow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_bonus.h"
-#include <stdio.h>
 
-int	init_data(t_data *data, va_list *arg_list)
+static int	init_data(t_data *data, va_list *arg_list)
 {
 	data->count = 0;
 	data->args = arg_list;
@@ -46,7 +45,7 @@ static int	ft_printf_parse(t_data *data, const char **sptr)
 	return (OK);
 }
 
-int	ft_printf_bonus(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	t_data	data;
 	va_list	args;
@@ -55,7 +54,7 @@ int	ft_printf_bonus(const char *str, ...)
 		return (0);
 	init_data(&data, &args);
 	va_start(*(data.args), str);
-	printf("%d\n", ft_printf_parse(&data, &str));
+	ft_printf_parse(&data, &str);
 	va_end(*(data.args));
 	free(data.buffer);
 	return (data.count);

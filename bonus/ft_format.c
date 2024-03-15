@@ -6,7 +6,7 @@
 /*   By: myeow <myeow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 22:42:22 by myeow             #+#    #+#             */
-/*   Updated: 2024/03/14 16:54:34 by myeow            ###   ########.fr       */
+/*   Updated: 2024/03/14 18:30:25 by myeow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_format(t_data *data, const char **sptr)
 	if (**sptr == '.' && *++*sptr && \
 			ft_get_pw(data, &data->flags.precision, sptr) < 0)
 		data->flags.precision = -1;
-	if (!ft_in(SPECIFIERS, **sptr))
+	if (!ft_in(SPECIFIERS, **sptr) && **sptr != '%')
 		return (PARSE_ERROR);
 	data->flags.specifier = **sptr;
 	if (data->flags.specifier == 'p')

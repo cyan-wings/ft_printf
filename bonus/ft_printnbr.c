@@ -6,7 +6,7 @@
 /*   By: myeow <myeow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:13:06 by myeow             #+#    #+#             */
-/*   Updated: 2024/03/14 16:55:14 by myeow            ###   ########.fr       */
+/*   Updated: 2024/03/14 21:00:49 by myeow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,8 @@ static void	check_flag_zero(t_data *data, long long int n, int len)
 
 int	check_zero_int(t_data *data, long long int n)
 {
-	char	s;
-
-	s = data->flags.specifier;
 	if (!n)
-		return ((s == 'd' || s == 'i' || s == 'u') && !data->flags.precision);
+		return (!data->flags.precision);
 	return (0);
 }
 

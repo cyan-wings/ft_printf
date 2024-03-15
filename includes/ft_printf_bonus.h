@@ -6,7 +6,7 @@
 /*   By: myeow <myeow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:59:52 by myeow             #+#    #+#             */
-/*   Updated: 2024/03/14 16:28:22 by myeow            ###   ########.fr       */
+/*   Updated: 2024/03/14 21:14:48 by myeow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
 
 # define FLAGS "-0# +"
 # define SPECIFIERS "cspdiuxX"
@@ -26,7 +24,7 @@
 # define BASE16CAPS "0123456789ABCDEF"
 # define BUFFER_SIZE 4096
 
-typedef	enum
+typedef enum s_error
 {
 	OK = 0,
 	MALLOC_ERROR = -1337,
@@ -34,7 +32,7 @@ typedef	enum
 	WIDTH_ERROR = -44,
 	PRECISION_ERROR = -55,
 	UNDEFINED_ERROR = -28,
-}	e_error;
+}	t_error;
 
 typedef struct s_flags
 {
@@ -76,11 +74,11 @@ void	ft_appendnbr_buffer(t_data *data, long long int n, \
 int		ft_printchar(t_data *data, int c);
 int		ft_printstring(t_data *data, const char *str);
 int		ft_printnbr(t_data *data, long long int n, char *base, int base_len);
-int	ft_printaddr(t_data *data, uintptr_t n, char *base);
+int		ft_printaddr(t_data *data, uintptr_t n, char *base);
 
 void	ft_format_addr(t_data *data);
 int		ft_format(t_data *data, const char **sptr);
 void	ft_format_specifier(t_data *data);
-int		ft_printf_bonus(const char *str, ...);
+int		ft_printf(const char *str, ...);
 
 #endif

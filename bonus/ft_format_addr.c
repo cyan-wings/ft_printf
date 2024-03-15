@@ -6,7 +6,7 @@
 /*   By: myeow <myeow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:53:01 by myeow             #+#    #+#             */
-/*   Updated: 2024/03/14 16:55:58 by myeow            ###   ########.fr       */
+/*   Updated: 2024/03/14 19:37:28 by myeow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_printaddr(t_data *data, uintptr_t n, char *base)
 	}
 	else
 	{
+		ft_appendchar_buffer(data, ' ', w - p);
 		ft_appendstr_buffer(data, "0x", 2);
 		ft_appendchar_buffer(data, '0', p - nlen);
 		ft_appendaddr_buffer(data, n, base);

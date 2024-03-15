@@ -6,7 +6,7 @@
 /*   By: myeow <myeow@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:21:16 by myeow             #+#    #+#             */
-/*   Updated: 2024/03/13 21:35:35 by myeow            ###   ########.fr       */
+/*   Updated: 2024/03/14 19:23:05 by myeow            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ int	ft_printstring(t_data *data, const char *str)
 {
 	int	w;
 	int	p;
+	int	len;
 
 	if (!str)
 		return (ft_printstring(data, "(null)"));
 	w = data->flags.width;
 	p = data->flags.precision;
-	if (p == -1)
-		p = ft_strlen(str);
+	len = ft_strlen(str);
+	if (p == -1 || p > len)
+		p = len;
 	if (data->flags.hyphen)
 	{
 		ft_appendstr_buffer(data, str, p);
