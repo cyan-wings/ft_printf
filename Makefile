@@ -1,7 +1,7 @@
 ###Header variables
 
 HDR_DIR 	= includes/
-HDR			= ft_printf.h
+HDR			= ft_printf_bonus.h
 HDRS		= $(addprefix $(HDR_DIR), $(HDR))
 
 
@@ -56,7 +56,7 @@ OBJS_BONUS		= $(addprefix $(OBJDIR_BONUS), $(OBJ_BONUS_F))
 ###Other variables
 
 NAME			= libftprintf.a
-IFLAGS			= -I $(HDRS)
+IFLAGS			= -include $(HDRS)
 CC				= cc
 CW				= -Wall -Wextra -Werror
 CFLAGS 			= $(CW) -c
@@ -87,6 +87,4 @@ fclean: clean
 
 re: fclean all
 
-rebonus: fclean bonus
-
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
