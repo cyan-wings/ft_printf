@@ -1,4 +1,4 @@
-#ft_printf
+# ft_printf
 
 Changes are made in libft repository.
 
